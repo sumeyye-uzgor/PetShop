@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import Home from '../views/Home.vue'
 import Cats from '../views/Cats.vue'
 import Dogs from '../views/Dogs.vue'
 import Pet from '../views/Pet.vue'
 
 Vue.use(VueRouter)
+Vue.use(BootstrapVue)
 
 const routes = [
   {
@@ -24,7 +29,7 @@ const routes = [
     component: Cats
   },
   {
-    path: '/pet',
+    path: '/pets/:id',
     name: 'Pet',
     component: Pet
   }
