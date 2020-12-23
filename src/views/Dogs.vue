@@ -1,10 +1,11 @@
-
 <template>
   <div class="col-8 offset-2">
     <h1>Dogs for Adoption</h1>
     <b-table :fields="fields" :items="dogs">
       <template #cell(name)="data">
-        <router-link to="`/pets/${data.index}`">{{ data.value }}</router-link>
+        <router-link :to="`pets/dogs/${data.index}`">{{
+          data.value
+        }}</router-link>
       </template>
     </b-table>
   </div>
@@ -12,8 +13,9 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  compute: {
+  computed: {
     ...mapState(["dogs"]),
   },
 };
 </script>
+
