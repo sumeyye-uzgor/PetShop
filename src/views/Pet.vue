@@ -30,10 +30,10 @@ export default {
     ...mapState(["cats", "dogs"]),
   },
   mounted() {
-    const specy = this.$route.params.species;
-    const animal = this[specy][this.$route.params.id];
+    const species = this.$route.params.species;
+    const animal = this[species][this.$route.params.id];
     this.animal = animal;
-    if (specy === "cats") {
+    if (species === "cat") {
       this.imgLink = "https://source.unsplash.com/collection/139386";
     } else {
       this.imgLink = "https://source.unsplash.com/collection/10139213";

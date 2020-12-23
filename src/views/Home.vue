@@ -1,7 +1,11 @@
 <template>
   <div class="home col-6 offset-3">
     <h1>Adopt a new best friend...</h1>
-
+    <h3>We have {{ animalsCount }} different animals...</h3>
+    <h3>
+      These are {{ getAllCats.length }} cats and
+      {{ animalsCount - getAllCats.length }} dogs.
+    </h3>
     <button class="btn btn-success" @click="togglePetForm">Add New Pet</button>
 
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
@@ -19,7 +23,7 @@
         <b-form-select
           id="input-2"
           v-model="formData.species"
-          :options="['cats', 'dogs']"
+          :options="['cat', 'dog']"
           required
         ></b-form-select>
       </b-form-group>
@@ -35,13 +39,13 @@
       </b-form-group>
 
       <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Home",
   data() {
@@ -54,6 +58,9 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters(["animalsCount", "getAllCats"]),
+  },
   methods: {
     ...mapActions(["addPet"]),
     togglePetForm() {
@@ -61,13 +68,16 @@ export default {
     },
     handleSubmit() {
       const { species, name, age } = this.formData;
+      const specy = species + "s";
       const payload = {
-        species,
+        specy,
         pet: {
           name,
           age,
+          species,
         },
       };
+      console.log(payload);
       this.addPet(payload);
 
       // reset form after submission
