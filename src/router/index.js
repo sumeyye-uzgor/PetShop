@@ -4,6 +4,7 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
 import Home from '../views/Home.vue'
 import Cats from '../views/Cats.vue'
 import Dogs from '../views/Dogs.vue'

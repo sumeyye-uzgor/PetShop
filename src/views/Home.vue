@@ -1,5 +1,5 @@
 <template>
-  <div class="home col-6 offset-3">
+  <div class="home-view-container col-6 offset-3">
     <h1>Adopt a new best friend...</h1>
     <h3>We have {{ animalsCount }} different animals...</h3>
     <h3>
